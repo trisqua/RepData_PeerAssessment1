@@ -48,7 +48,12 @@ averagesteps[max.average.steps,]
 
 
 ### Inputing missing values
-In this step, the _NA_ values are replaced by the average number of steps for that interval. 
+In this step, the _NA_ values are replaced by the average number of steps for that interval. First we determine how many records there are that contain an _NA_ value.
+```{r Determining number of NA values}
+sum(is.na(activity$steps))
+
+```
+
 ```{r Imputing the NA values}
 library(dplyr)
 activity.imputed<-full_join(activity,averagesteps)
